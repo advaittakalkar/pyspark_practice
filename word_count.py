@@ -10,7 +10,10 @@ sc.setLogLevel("ERROR")   # WARN, INFO, ERROR, FATAL
 i = sc.textFile("C:/World/Learnings/Big data/5. spark/Week 9/file.txt.txt")
 
 # one input row multiple output
-rdd = i.flatMap(lambda x: x.split(" "))
+words = i.flatMap(lambda x: x.split(" "))
+
+# converting all to lowercase
+rdd = words.map(lambda x: (x.lower()))
 
 # one input one output
 rdd2 = rdd.map(lambda x: (x, 1))
