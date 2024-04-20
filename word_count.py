@@ -1,8 +1,12 @@
 from pyspark import SparkContext
-
+from sys import stdin
 
 # common lines
 sc = SparkContext("local[*]", "word_count" )
+
+# changing the log level
+sc.setLogLevel("ERROR")   # WARN, INFO, ERROR, FATAL
+
 i = sc.textFile("C:/World/Learnings/Big data/5. spark/Week 9/file.txt.txt")
 
 # one input row multiple output
@@ -19,5 +23,7 @@ rdd4 = rdd3.collect()
 
 for a in rdd4:
     print(a)
+
+stdin.readline()   # program will go on running until we stop it, because DAG will be active till the program is running and we want to see the DAG
 
 # congratulations on first program
