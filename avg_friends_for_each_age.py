@@ -1,5 +1,6 @@
 # id, name, age, no_of_friends
 # so we want to calculate average friends for that particular age, so we only want 3rd and 4th column
+# we can get age and no_of_friends via function too
 
 from pyspark import SparkContext
 
